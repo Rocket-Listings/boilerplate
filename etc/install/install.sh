@@ -56,21 +56,13 @@ fi
 cp -p $PROJECT_DIR/etc/install/bashrc /home/vagrant/.bashrc
 su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache"
 
-# Node.js, CoffeeScript and LESS
-if ! command -v npm; then
-    wget http://nodejs.org/dist/v0.10.0/node-v0.10.0.tar.gz
-    tar xzf node-v0.10.0.tar.gz
-    cd node-v0.10.0/
-    ./configure && make && make install
-    cd ..
-    rm -rf node-v0.10.0/ node-v0.10.0.tar.gz
-fi
-if ! command -v coffee; then
-    npm install -g coffee-script
-fi
-if ! command -v lessc; then
-    npm install -g less
-fi
+apt-add-repository ppa:chris-lea/node.js
+apt-get update
+apt-get install -y nodejs
+npm install -g npm
+npm install 
+npm install --global gulp
+npm install --save-dev gulp
 
 # ---
 

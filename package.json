@@ -1,0 +1,49 @@
+{
+  "name": "HiddenTalent",
+  "version": "0.0.0",
+  "description": "Find better talent",
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "hbsfy"
+    ]
+  },
+  "devDependencies": {
+    "backbone": "*",
+    "backbone-relational": "*",
+    "backbone.babysitter": "*",
+    "backbone.wreqr": "*",
+    "browserify": "*",
+    "browserify-shim": "*",
+    "exorcist": "^0.1.6",
+    "gulp": "^3.8.11",
+    "gulp-concat": "2.4.*",
+    "gulp-less": "1.3.*",
+    "gulp-livereload": "*",
+    "gulp-plumber": "0.6.*",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "*",
+    "gulp-watch": "0.6.*",
+    "handlebars": "*",
+    "hbsfy": "^2.2.1",
+    "jquery": "*",
+    "jquery-autosize": "1.18.*",
+    "jquery.cookie": "*",
+    "lazyload": "1.8.4",
+    "raven": "*",
+    "select2": "*",
+    "underscore": "*",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "*",
+    "vinyl-transform": "*",
+    "watchify": "*"
+  },
+  "browserify-shim": {
+    "mixpanel": "global:mixpanel",
+    "facebook": "FB",
+    "environment": "global:environment",
+    "google_analytics": "global:ga",
+    "filepicker": "global:filepicker"
+  }
+}
