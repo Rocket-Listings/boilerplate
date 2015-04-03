@@ -128,6 +128,30 @@ WSGI_APPLICATION = 'hiddentalent.wsgi.application'
 
 TEMPLATE_DIRS = [join(APP_DIR, 'templates')]
 
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+
+
+    # Required by `allauth` template tags
+    "django.core.context_processors.request",
+    
+    # `allauth` specific context processors
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
+    
+)
+
+AUTHENTICATION_BACKENDS = (
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,8 +165,17 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.linkedin_oauth2',
     'core',
 )
+
+
+
+SITE_ID = 1
 
 EMAIL_SUBJECT_PREFIX = '[hiddentalent] '
 
@@ -152,6 +185,19 @@ INTERNAL_IPS = ('127.0.0.1', '10.0.2.2')
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
 }
+
+# allauth settings
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+ACCOUNT_UNIQUE_EMAIL = True
+
+LOGIN_REDIRECT_URL = 'home'
+
+SIGNUP_REDIRECT_URL = 'home'
 
 
 # A sample logging configuration. The only tangible logging
@@ -182,3 +228,13 @@ LOGGING = {
         },
     }
 }
+
+SOCIALACCOUNT_PROVIDERS = \
+    {'linkedin':
+      {'SCOPE': ['r_emailaddress'],
+       'PROFILE_FIELDS': ['id',
+                         'first-name',
+                         'last-name',
+                         'email-address',
+                         'picture-url',
+                         'public-profile-url']}}

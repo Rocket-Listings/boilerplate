@@ -35,8 +35,8 @@ var paths = {
 gulp.task('lessWatch', function() {
   return gulp.src(paths.less.main)
     .pipe(plumber())
-    .pipe(less())
     .pipe(watch())
+    .pipe(less())
     .pipe(gulp.dest(paths.less.dest));
 });
 
