@@ -1,3 +1,4 @@
 /.vagrant
 /static
 *.pyc
+/hiddentalent/settings/local.py

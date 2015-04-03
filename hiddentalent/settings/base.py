@@ -1,9 +1,27 @@
 # Django settings for hiddentalent project.
 
+from __future__ import absolute_import
 import os
+from os.path import dirname, join, abspath
+from os import environ
 import sys
+from sys import path
+# import dj_database_url
+# import logging
+# from urlparse import urlparse
+# from redisify import redisify
+# from .celery import *  # noqa
+# import mimetypes
 
 PROJECT_ROOT = os.path.join(os.path.dirname(__file__), '..', '..')
+
+APP_DIR = dirname(dirname(abspath(__file__)))
+
+REPO_DIR = dirname(APP_DIR)
+
+# allow for imports in the form: `import sell.forms`
+# instead of `import apps.sell.forms`.
+path.append(join(APP_DIR, 'apps'))
 
 # Modify sys.path to include the lib directory
 sys.path.append(os.path.join(PROJECT_ROOT, "lib"))
@@ -76,12 +94,8 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
-# Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+# Static file settings
+STATICFILES_DIRS = [join(REPO_DIR, "static", "build")]
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -112,11 +126,8 @@ ROOT_URLCONF = 'hiddentalent.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'hiddentalent.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+
+TEMPLATE_DIRS = [join(APP_DIR, 'templates')]
 
 INSTALLED_APPS = (
     'django.contrib.auth',
