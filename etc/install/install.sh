@@ -37,12 +37,16 @@ apt-get install -y libjpeg-dev libtiff-dev zlib1g-dev libfreetype6-dev liblcms2-
 # Git (we'd rather avoid people keeping credentials for git commits in the repo, but sometimes we need it for pip requirements that aren't in PyPI)
 apt-get install -y git
 
+
 # Postgresql
 if ! command -v psql; then
     apt-get install -y postgresql-$PGSQL_VERSION libpq-dev
     cp $PROJECT_DIR/etc/install/pg_hba.conf /etc/postgresql/$PGSQL_VERSION/main/
     /etc/init.d/postgresql reload
 fi
+
+#Install rabbitmq
+apt-get install rabbitmq-server
 
 # virtualenv global setup
 if ! command -v pip; then
@@ -56,6 +60,7 @@ fi
 cp -p $PROJECT_DIR/etc/install/bashrc /home/vagrant/.bashrc
 su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache"
 
+#install node and stuff
 apt-add-repository ppa:chris-lea/node.js
 apt-get update
 apt-get install -y nodejs

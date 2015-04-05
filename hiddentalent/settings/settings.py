@@ -10,8 +10,8 @@ from sys import path
 # import logging
 # from urlparse import urlparse
 # from redisify import redisify
-# from .celery import *  # noqa
-# import mimetypes
+from .celery import *  # noqa
+import mimetypes
 
 
 def env_var(key, default=None, coerce=None):
@@ -193,6 +193,13 @@ ACCOUNT_UNIQUE_EMAIL = True
 LOGIN_REDIRECT_URL = 'home'
 
 SIGNUP_REDIRECT_URL = 'home'
+
+# Mail settings
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+
+MAILGUN_ACCESS_KEY = 'key-9flqj538z-my-qcnpc74c2wit4vibl-3'
+
+MAILGUN_SERVER_NAME = 'notcl.com'
 
 # Logging settings
 
