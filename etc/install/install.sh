@@ -69,7 +69,13 @@ npm install
 npm install --global gulp
 npm install --save-dev gulp
 
-# ---
+# Redis setup
+wget http://download.redis.io/redis-stable.tar.gz
+tar xvzf redis-stable.tar.gz
+cd redis-stable
+make
+make install
+
 
 # postgresql setup for project
 createdb -Upostgres $DB_NAME

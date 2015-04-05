@@ -7,7 +7,7 @@ from os import environ
 import sys
 from sys import path
 # import dj_database_url
-# import logging
+import logging
 # from urlparse import urlparse
 # from redisify import redisify
 from .celery import *  # noqa
@@ -179,7 +179,7 @@ INSTALLED_APPS = (
 
 EMAIL_SUBJECT_PREFIX = '[hiddentalent] '
 
-
+REDIS_URL = env_var('OPENREDIS_URL')
 
 # allauth settings
 ACCOUNT_EMAIL_REQUIRED = True

@@ -69,7 +69,6 @@ def curl(action, url, env='dev'):
 @task
 def manage(command, env='dev'):
     if env == 'dev':
-        chdir(join(REPO_DIR, APP_DIR))
         command = 'python manage.py {}'.format(command)
         retcode = run(command, env=env)
         chdir(REPO_DIR)
