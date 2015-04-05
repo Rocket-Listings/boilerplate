@@ -53,6 +53,20 @@
     },
     "model": "auth.user",
     "pk": 2
-}
+},
+{
+  "fields": {
+    "name": "Hidden Talent",
+    "sites": [
+      1
+    ],
+    "secret": "VFaT9Its7bu3TqT5",
+    "client_id": "78azubf38otey7",
+    "key": "",
+    "provider": "linkedin"
+  },
+  "model": "socialaccount.socialapp",
+  "pk": 1
+},
 
 ]

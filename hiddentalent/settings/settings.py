@@ -224,7 +224,7 @@ LOGGING = {
 
 SOCIALACCOUNT_PROVIDERS = \
     {'linkedin':
-      {'SCOPE': ['r_emailaddress'],
+      {'SCOPE': ['r_emailaddress', 'r_fullprofile'],
        'PROFILE_FIELDS': ['id',
                          'first-name',
                          'last-name',
