@@ -254,8 +254,8 @@ NOTIFICATIONS = {
     },
     'user.new': {
         'default': {
-            'message': '<a href="http://localhost:8111/about/">Thanks for joining Hidden Talent, {{ instance.first_name }}! </a> ' +
-            'Learn how to make the most of your account our about page.'
+            'message': '<a href="http://localhost:8111/about/">Thanks for joining Hidden Talent, {{ instance.first_name }}! ' +
+            'Learn how to make the most of your account our about page. </a> '
         },
     },
 }
