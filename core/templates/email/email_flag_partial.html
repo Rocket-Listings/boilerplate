@@ -1,0 +1,10 @@
+
+<tr style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0; padding: 0; border-top: 1px dashed lightgrey; border-bottom: 1px dashed lightgrey;">
+	<td class="content-wrap" style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 20px;" valign="top">
+		{% if instance.flag_status == "flagged" %}
+				Your <a  href="https://www.rocketlistings.com/listing/{{instance.id}}">listing</a> has recieved three flags and will no longer show up in search results or in the listing feed, but will still be accesible through the url. If it receives three more flags, it will be removed. For more info, head to <a href="https://www.rocketlistings.com/">Rocket Listings</a>
+		{% elif instance.flag_status == "removed" %}
+			Your <a href="https://www.rocketlistings.com/listing/{{instance.id}}">listing</a> has recieved six flags and has been removed. It will no longer show up in search results or in the listing feed, or be accessible through the url. For more info, head to <a href="https://www.rocketlistings.com/">Rocket Listings</a>
+		{% endif %}
+	</td>
+</tr>

@@ -1,0 +1,5 @@
+Your Rocket Listings Daily Digest: 
+
+{% if notifications %}
+  You have new comments on your listings! Head to www.rocketlistings.com to check them out.
+{% endif %}

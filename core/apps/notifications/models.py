@@ -45,3 +45,10 @@ def queue_notification_task(sender, instance, created, **kwargs):
     if created:
         from notifications.tasks import dispatch_notification
         dispatch_notification.delay(instance.id, instance.key, instance.object_id)
+
+
+@receiver(post_save, sender=User)
+def send_welcome_email(sender, instance, created, **kwargs):
+    if created:
+        from notifications.tasks import signup_email
+        signup_email.delay(instance.id)

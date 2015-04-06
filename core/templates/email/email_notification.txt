@@ -1,0 +1,15 @@
+{% load notifications %}
+
+{% if notification.key == "comment.new" %}
+        {{ notification.instance.user.username }} sent you a message! 
+    {% elif notification.key == "comment.new.reply" %}
+        {{ notification.instance.user.username }} replied to your comment!
+    {% elif notification.key == "flag.flagged" %}
+        Your listing has been flagged
+    {% elif notification.key == "flag.removed" %}
+        Your listing has been removed
+    {% elif notification.key == "feed.saved_search" %}
+        A listing has just been posted that matches your custom category!
+    {% endif %}
+
+{% render_notification notification 'email' 'html' mark_unread=True %}

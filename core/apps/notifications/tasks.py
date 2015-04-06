@@ -5,13 +5,21 @@ from django.core.mail import EmailMultiAlternatives
 from celery import shared_task
 from notifications.models import Notification
 from notifications.templatetags.notifications import render_notification
-from listings.models import UserProfile, FBGroup
-from utils.tasks import fb_graph
 import logging
 import re
 
-logger = logging.getLogger('process')
 
+@shared_task(ignore_result=True)
+def signup_email(user_id):  
+    user = User.objects.get(pk=user_id)
+    context = Context({'user': user})
+    html = get_template('email/signup_thanks.html').render(context)
+    plaintext = get_template('email/signup_thanks.txt').render(context)
+    subject = ("Thanks for joining Hiddent Talent!")
+    from_email, to = 'admin@hiddentalent.io', user.email
+    msg = EmailMultiAlternatives(subject, plaintext, from_email, [to])
+    msg.attach_alternative(html, "text/html")
+    msg.send()
 
 @shared_task(ignore_result=True)
 def dispatch_notification(notification_id, notification_key, object_id):
