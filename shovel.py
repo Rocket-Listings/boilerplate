@@ -5,7 +5,7 @@ from os.path import join
 from os import chdir, getcwd
 
 REPO_DIR = getcwd()
-APP_DIR = 'hiddentalent'
+APP_DIR = 'core'
 
 ENV_FORMAT = join(REPO_DIR, 'deploy/environments/.env.{}')
 PROC_FORMAT = join(REPO_DIR, 'deploy/procfiles/Procfile.{}')
@@ -69,6 +69,7 @@ def curl(action, url, env='dev'):
 @task
 def manage(command, env='dev'):
     if env == 'dev':
+        chdir(join(REPO_DIR, APP_DIR))
         command = 'python manage.py {}'.format(command)
         retcode = run(command, env=env)
         chdir(REPO_DIR)
@@ -106,9 +107,3 @@ def resetrabbitmq():
     run('rabbitmqctl stop_app')
     run('rabbitmqctl reset')
     run('rabbitmqctl start_app')
-
-
-@task
-def migrate():
-    manage('schemamigration listings --auto', env='dev')
-    manage('migrate listings', env='dev')

@@ -81,8 +81,6 @@ DEPLOY_SLUG = env_var('ROCKET_DEPLOY_SLUG')
 TEMPLATE_DEBUG = DEBUG
 
 
-
-
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -174,6 +172,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.linkedin_oauth2',
     'listings',
+    'notifications'
 )
 
 
