@@ -19,54 +19,39 @@
   }
 },
 {
-    "fields": {
-        "username": "brian",
-        "first_name": "",
-        "last_name": "",
-        "is_active": true,
-        "is_superuser": true,
-        "is_staff": true,
-        "last_login": "2015-04-05T17:09:51.602Z",
-        "groups": [],
-        "user_permissions": [],
-        "password": "pbkdf2_sha256$12000$9eZMrTMlgIWU$A3d/6zCbmt3sD7dh3/RHaz3tz+JhKDdYaAwjbx11/c8=",
-        "email": "",
-        "date_joined": "2015-04-05T17:09:51.602Z"
-    },
-    "model": "auth.user",
-    "pk": 1
-},
-{
-    "fields": {
-        "username": "steve",
-        "first_name": "",
-        "last_name": "",
-        "is_active": true,
-        "is_superuser": true,
-        "is_staff": true,
-        "last_login": "2015-04-05T17:10:00.057Z",
-        "groups": [],
-        "user_permissions": [],
-        "password": "pbkdf2_sha256$12000$GNCg0Fj8sOXy$E2XptbH6hnNWTr5PZYx+M4o2nqcWnCx6D4Y9KaGjNok=",
-        "email": "",
-        "date_joined": "2015-04-05T17:10:00.057Z"
-    },
-    "model": "auth.user",
-    "pk": 2
-},
-{
+  "pk": 1,  
+  "model": "auth.user",
   "fields": {
-    "name": "Hidden Talent",
-    "sites": [
-      1
-    ],
-    "secret": "VFaT9Its7bu3TqT5",
-    "client_id": "78azubf38otey7",
-    "key": "",
-    "provider": "linkedin"
-  },
-  "model": "socialaccount.socialapp",
-  "pk": 1
+    "username": "brian",
+    "first_name": "",
+    "last_name": "",
+    "is_active": true,
+    "is_superuser": true,
+    "is_staff": true,
+    "last_login": "2015-04-05T17:09:51.602Z",
+    "groups": [],
+    "user_permissions": [],
+    "password": "pbkdf2_sha256$12000$9eZMrTMlgIWU$A3d/6zCbmt3sD7dh3/RHaz3tz+JhKDdYaAwjbx11/c8=",
+    "email": "",
+    "date_joined": "2015-04-05T17:09:51.602Z"
+  }
 },
-
+{
+  "pk": 2,
+  "model": "auth.user",
+  "fields": {
+    "username": "steve",
+    "first_name": "",
+    "last_name": "",
+    "is_active": true,
+    "is_superuser": true,
+    "is_staff": true,
+    "last_login": "2015-04-05T17:10:00.057Z",
+    "groups": [],
+    "user_permissions": [],
+    "password": "pbkdf2_sha256$12000$GNCg0Fj8sOXy$E2XptbH6hnNWTr5PZYx+M4o2nqcWnCx6D4Y9KaGjNok=",
+    "email": "",
+    "date_joined": "2015-04-05T17:10:00.057Z"
+  }
+},
 ]

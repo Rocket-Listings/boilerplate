@@ -14,35 +14,13 @@ def render_notification(notif, media='default', field='message', mark_unread=Fal
     except KeyError:
         return ""
 
-    if not notif.viewed and not mark_unread:
-        notif.viewed = True
-        notif.save()
-
-    if mark_unread:
-        notif.viewed = False
-        notif.save()
-
     try:
         template = get_template(config)
     except TemplateDoesNotExist:
         template = Template(config)
-
-    try:
-        url = notif.get_absolute_url()
-    except:
-        notif.delete()
-    else:
-        if media == "facebook-private" or media == "facebook-public":
-            notif.instance = notif.instance
-            notif.instance.body = notif.instance.body.replace("'", "")
-            notif.instance.body = notif.instance.body.replace('"', "")
-            notif.instance.listing.user.first_name = notif.instance.listing.user.first_name.replace('"', "")
-            notif.instance.listing.user.first_name = notif.instance.listing.user.first_name.replace("'", "")
-            notif.save()
-
-        return template.render(Context({
-            'instance': notif.instance,
-            'key': notif.key,
-            'url': url,
-            'date': notif.when()
-        }))
+    
+    return template.render(Context({
+        'instance': notif.instance,
+        'key': notif.key,
+        
+    }))

@@ -47,6 +47,7 @@ fi
 
 #Install rabbitmq
 apt-get install rabbitmq-server
+apt-get update
 
 # virtualenv global setup
 if ! command -v pip; then

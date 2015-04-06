@@ -132,6 +132,7 @@ TEMPLATE_DIRS = [join(APP_DIR, 'templates')]
 
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    "context_processors.global_notifications",
     "django.contrib.auth.context_processors.auth",
 
 
@@ -250,60 +251,12 @@ NOTIFICATIONS = {
             'plaintext': 'email/email_comment_partial.txt',
             'subject': '{{ instance.user.profile.display_name }} sent you a message'
         },
-        'facebook-public': {
-            'message': 'Hi {{ instance.listing.user.first_name }}, buyers are commenting on the Rocket Listings ' +
-            'copy of your post. {{ instance.user.first_name }} {{ instance.user.last_name }} said: ' +
-            '"{{ instance.body }}". Reply at {{ url }}.'
-        },
-        'facebook-private': {
-            'message': 'Hi {{ instance.listing.user.first_name }}, buyers are commenting on the Rocket Listings ' +
-            'copy of your post. {{ instance.user.first_name }} {{ instance.user.last_name }} said: ' +
-            '"{{ instance.body }}". Log-in to reply at {{ url }}.'
-        }
     },
-    'comment.new.reply': {
+    'user.new': {
         'default': {
-            'message': '<a href="{{ instance.user.profile.get_absolute_url }}">{{ instance.user.profile.display_name }}</a> ' +
-            ' sent a <a href="{{ url }}"><strong>reply</strong></a> to your message</a>.'
+            'message': '<a href="http://localhost:8111/about/">Thanks for joining Hidden Talent, {{ instance.first_name }}! </a> ' +
+            'Learn how to make the most of your account our about page.'
         },
-
-        'email': {
-            'html': 'email/email_comment_partial.html',
-            'plaintext': 'email_comment_partial.txt',
-            'subject': '{{ instance.user.profile.display_name }} replied to your message.'
-        }
     },
-    'flag.flagged': {
-        'default': {
-            'message': 'Your <a href="{{ instance.get_absolute_url }}">listing</a> has been flagged.' +
-            ' <a href="" data-toggle="modal" data-target="#StatusModal">More</a>'
-        },
-        'email': {
-            'html': 'email/email_flag_partial.html',
-            'plaintext': 'email/email_flag_partial.txt',
-            'subject': 'Your listing was flagged'
-        }
-    },
-    'flag.removed': {
-        'default': {
-            'message': 'Your <a href="{{ instance.get_absolute_url }}">listing</a> has been removed. ' +
-            ' <a href="" data-toggle="modal" data-target="#StatusModal">More</a>'
-        },
-        'email': {
-            'html': 'email/email_flag_partial.html',
-            'plaintext': 'email/email_flag_partial.txt',
-            'subject': 'Your listing was flagged and removed'
-        }
-    },
-    'feed.saved_search': {
-        'default': {
-            'message': '<a href="{{ url }}">{{ instance.listing.description|truncatechars:75 }}</a> in "{{ instance.relation.name }}"'
-        },
-        'email': {
-            'html': 'email/email_savedsearch_partial.html',
-            'plaintext': 'email/email_savedsearch_partial.txt',
-            'subject': 'Someone posted a listing matching your custom category!'
-        }
-    }
 }
 
