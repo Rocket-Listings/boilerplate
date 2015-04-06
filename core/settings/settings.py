@@ -48,7 +48,7 @@ ALLOWED_HOSTS = []
 
 INTERNAL_IPS = ('127.0.0.1', '10.0.2.2')
 
-ROOT_URLCONF = 'hiddentalent.urls'
+ROOT_URLCONF = 'settings.urls'
 
 WSGI_APPLICATION = 'wsgi.application'
 
@@ -127,7 +127,7 @@ MIDDLEWARE_CLASSES = (
 
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'hiddentalent.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 TEMPLATE_DIRS = [join(APP_DIR, 'templates')]
@@ -173,7 +173,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.linkedin_oauth2',
-    'core',
+    'listings',
 )
 
 

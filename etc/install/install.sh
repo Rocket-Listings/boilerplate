@@ -75,7 +75,7 @@ tar xvzf redis-stable.tar.gz
 cd redis-stable
 make
 make install
-
+cd ..
 
 # postgresql setup for project
 createdb -Upostgres $DB_NAME

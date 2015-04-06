@@ -1,3 +1,3 @@
-web: python manage.py runserver 0.0.0.0:8000
-networker: celery worker -A hiddentalent.settings -E -P gevent -c 100 -Q slow
-dbworker: celery worker -A hiddentalent.settings -E -c 10 -Q fast 
+web: cd core && python manage.py runserver 0.0.0.0:8000
+networker: cd core && celery worker -A settings -E -P gevent -c 100 -Q slow
+dbworker: cd core && celery worker -A settings -E -c 10 -Q fast 
